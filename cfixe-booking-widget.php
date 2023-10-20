@@ -114,8 +114,7 @@ function cfixe_booking_widget_shortcode($atts) {
 }
 
 function cfixe_enqueue_admin_scripts() {
-  echo "
-  <script type='text/javascript'>
+  wp_add_inline_script('cfixe-booking-widget-script', "
     document.addEventListener('DOMContentLoaded', function() {
       let color1Picker = document.getElementById('color1_picker');
       let color1Text = document.getElementById('color1_text');
@@ -138,13 +137,11 @@ function cfixe_enqueue_admin_scripts() {
         color2Picker.value = color2Text.value;
       });
     });
-  </script>
-  ";
+    ");
 }
 
 function cfixe_admin_styles() {
-  echo "
-    <style>
+  wp_add_inline_style('cfixe-booking-widget-admin-style', "
         #color1_picker, #color2_picker {
             vertical-align: middle;
         }
@@ -156,8 +153,7 @@ function cfixe_admin_styles() {
             border: 1px solid #ccc;
             box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
         }
-    </style>
-    ";
+  ");
 }
 
 add_action('admin_menu', 'cfixe_booking_widget_options_page');
