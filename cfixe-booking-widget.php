@@ -159,6 +159,6 @@ function cfixe_admin_styles() {
 add_action('admin_menu', 'cfixe_booking_widget_options_page');
 add_action('admin_init', 'cfixe_booking_widget_register_settings');
 add_action('wp_enqueue_scripts', 'cfixe_booking_widget_enqueue_scripts');
-add_action('admin_footer', 'cfixe_enqueue_admin_scripts');
+add_action('admin_enqueue_scripts', 'cfixe_enqueue_admin_scripts');
 add_shortcode('cfixe_booking_widget', 'cfixe_booking_widget_shortcode');
 add_action('admin_head', 'cfixe_admin_styles');
